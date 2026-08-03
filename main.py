@@ -11,8 +11,7 @@ def home():
 
 @app.route("/chat")
 def chat():
-    user_msg = 
-    request.json.get("msg")
+    user_msg = request.json.get("msg")
 
     url =url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key={API_KEY}" 
 
