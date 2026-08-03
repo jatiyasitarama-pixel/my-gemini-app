@@ -32,9 +32,7 @@ def chat():
         reply = result["candidates"][0]["content"]["parts"][0]["text"]
     except:
         reply = str(result)
-
-    return reply
-return jsonify({"reply": reply})
+        return jsonify({"reply": reply})
 
 if __name__ == "__main__":
     app.run(debug=True)
