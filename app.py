@@ -3,11 +3,7 @@ import google.generativeai as genai
 
 app = Flask(__name__)
 
-# 🔑 Apni Gemini API key yaha dal
-genai.configure(api_key="AQ.Ab8RN6LTEH_q-ic4iR55pqZJXqwd9HVv-PmaGyKq_kYtkru2Og")
-
-# 🤖 Model
-model = genai.GenerativeModel("gemini-3.6-flash")
+https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key="AQ.Ab8RN6LTEH_q-ic4iR55pqZJXqwd9HVv-PmaGyKq_kYtkru2Og" 
 
 
 # 🏠 Home route (check server)
