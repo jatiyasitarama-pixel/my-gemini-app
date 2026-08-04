@@ -1,4 +1,4 @@
-from google import genai
+import google.generativeai as genai
 import time
 
 client = genai.Client(api_key="AQ.Ab8RN6KPfnJtVhd4Z8R-OIyvsmZT6SXeabDCjiXE1bxnuEWQbg")
