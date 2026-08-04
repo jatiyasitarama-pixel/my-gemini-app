@@ -1,22 +1,23 @@
+from flask import Flask, request, jsonify
 import google.generativeai as genai
-import time
 
-client = genai.Client(api_key="AQ.Ab8RN6KPfnJtVhd4Z8R-OIyvsmZT6SXeabDCjiXE1bxnuEWQbg")
+app = Flask(__name__)
 
-while True:
-    user_input = input("user: ")
+# API key set करो
+genai.configure(api_key="AQ.Ab8RN6KPfnJtVhd4Z8R-OIyvsmZT6SXeabDCjiXE1bxnuEWQbg")
 
-    if user_input == "end":
-        break
+# model बनाओ
+model = genai.GenerativeModel("gemini-3.6-flash")
 
-    try:
-        interaction = client.interactions.create(
-            model="gemini-3.6-flash",
-            input=user_input
-        )
+@app.route("/chat", methods=["POST"])
+def chat():
+    user_input = request.json.get("message")
 
-        print("bot:", interaction.output_text)
+    response = model.generate_content(user_input)
 
-    except Exception as e:
-        print("error आया, retry हो रहा है...")
-        time.sleep(2)
+    return jsonify({
+        "reply": response.text
+    })
+
+if __name__ == "__main__":
+    app.run()
